@@ -1,7 +1,7 @@
 pipeline {
     agent {
         label 'docker-agent'
-}
+    }
 
     stages {
         stage('Checkout') {
@@ -21,11 +21,11 @@ pipeline {
                 echo 'Running tests'
             }
         }
-        stage('Docker Check') {
-    steps {
-        bat '"C:\\Users\\kruth\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" version'
-    }
-}
-    }
-}
 
+        stage('Docker Build') {
+            steps {
+                bat 'docker build -t kruthikargowdar/ai-resume-analyzer:v3 .'
+            }
+        }
+    }
+}
