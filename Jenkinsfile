@@ -19,9 +19,9 @@ pipeline {
                 echo 'Running tests'
             }
         }
-        stage('Docker Check') {
-    steps {
-        bat 'docker version'
+        stage('Docker Build') {
+            steps {
+            bat 'docker build -t ai-resume-analyzer:%BUILD_NUMBER% .'
     }
 }
     }
