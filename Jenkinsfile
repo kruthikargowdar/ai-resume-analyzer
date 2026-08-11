@@ -19,9 +19,9 @@ pipeline {
                 echo 'Running tests'
             }
         }
-        stage('Docker Build') {
-            steps {
-            bat 'docker build -t ai-resume-analyzer:%BUILD_NUMBER% .'
+        stage('Docker Check') {
+    steps {
+        bat '"C:\\Users\\kruth\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" version'
     }
 }
     }
