@@ -19,5 +19,11 @@ pipeline {
                 echo 'Running tests'
             }
         }
+        stage('Docker Check') {
+    steps {
+        bat 'docker version'
     }
 }
+    }
+}
+
