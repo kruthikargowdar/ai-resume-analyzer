@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-resume-analyzer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-resume-analyzer
+  template:
+    metadata:
+      labels:
+        app: ai-resume-analyzer
+    spec:
+      containers:
+        - name: ai-resume-analyzer
+          image: kruthikargowdar/ai-resume-analyzer:v5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 10000

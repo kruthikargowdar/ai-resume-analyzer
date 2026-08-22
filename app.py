@@ -3,6 +3,8 @@ import requests
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from resume_checker import analyze_resume
+from prometheus_flask_exporter import PrometheusMetrics
+
 
 load_dotenv()
 BRIGHT_DATA_API_KEY = os.getenv("BRIGHT_DATA_API_KEY")
@@ -14,6 +16,9 @@ from PIL import Image
 import io
 
 app = Flask(__name__)
+
+metrics = PrometheusMetrics(app)
+
 
 
 # -------- PDF TEXT EXTRACTION --------
